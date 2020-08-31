@@ -1,0 +1,23 @@
+// REF: https://www.dnsstuff.com/what-is-server-load-balancing
+
+What is LB:
+- directs reequests to dfferent servers
+- helps prevent DDOS attack
+
+How Do they work:
+5 methods:
+1) Round robin: send a request to server & move it to bottom of list(FIFO)
+2) IP Hash: use client IP address in hashing function to determine server
+3) Least connections: server which has least connections
+4) Lowest response time: server with least connections & lowest response time
+5) Lowest bandwidth: server traffic is measured in MBps. request is sent to server with lowest traffic.
+
+Types:
+Network: uses network layer(layer 4) to detrmine server. Fastest. falls sort to ensure balanced distribution of traffic.
+Application: uses application layer(layer 7) to detrmine server. most flexible to apply distribution descisions
+Internal: similar to Newtork but setup up for internal infrastructure.
+
+Variants:
+Hard: Actual physical devices. expensive & rigid.
+Soft: 2 types: commercial & open source. installed prior use. affordable
+Virtual: different frm Software since it is installed on a Hardware load balancing device on a virtual machine.
