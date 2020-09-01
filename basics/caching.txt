@@ -1,0 +1,50 @@
+// REF: https://github.com/lei-hsia/grokking-system-design/blob/master/basics/caching.md
+// REF: https://medium.com/rtkal/distributed-cache-design-348cbe334df1
+
+Caching:
+Exploit locality of reference principle
+Reduce network calls
+
+Types:
+1) Application level: cache within application server
+Not scalable
+
+2) Distributed:
+cache divided accross multiple servers
+use hashing function to identify cache server
+Loss of data if 1 server fails
+
+3) Global:
+Distributed + redundancy.
+
+Use Cases:
+CDN.
+Database caching
+User session storing
+Frequent data lookups
+
+Cache Invalidations:
+Keep data in sync with source of truth.
+Types:
+1) Write-through cache:
+Data written to cache & permanent store at same time
+High Write latency
+
+2) Write-around cache:
+Data written to permanent store only
+High Read latency
+
+3) Write-back cache:
+Data written to cache & then cache writes to permanent store
+Risk of data loss
+
+Cache eviction policies:
+FIFO:
+LIFO
+LRU: Least Recently used
+MRU: Most recntly used
+LFU: Leeast Frequently used
+RR: random replacement
+
+Examples:
+Memcache, Redis, etc.
