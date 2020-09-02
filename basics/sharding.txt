@@ -1,0 +1,38 @@
+// REF: https://github.com/lei-hsia/grokking-system-design/blob/master/basics/sharding.md
+
+Sharding:
+splitting data into smaller partitions or shards
+
+Partitioning methods:
+1) Horizontal:
+- based on range / row-wise
+- leads to unbalanced shards
+2) Vertical:
+- based on a feature
+- easy to implement & less costly
+3) Directory-based:
+- lookup service to determine shard
+- Single point of failure
+
+Partitioning Criteria:
+1) Key/Hash based:
+- Apply hash function to determine shard
+- may lead to unbalanced shards
+- Workaround: consistent hashing
+2) List:
+- Each partition is assigned list of values
+3) Round Robin:
+- for n servers, ith tuple will be in (i % n) shard
+4) Composite:
+- any combination of above 3. eg: consistent hashing = Key + List
+
+Common Problems:
+1) Joins & denormalization:
+- joins across mulltiple servers will not be effecient
+- workaround: denormalized data (May lead to inconsistent data)
+2) Referential Integrtiy:
+- difficult to enforce data integrity acorss mutiple servers
+- workaround: delegate responsibility to application code
+3) Rebalancing:
+- reasons: data distribution is not uniform, load on 1 shard
+- adding shards or rebalancing shards changes partitioning scheme & requires data movement.
