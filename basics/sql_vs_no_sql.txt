@@ -1,0 +1,38 @@
+# REF: https://github.com/lei-hsia/grokking-system-design/blob/master/basics/sql-vs-nosql.md
+
+Types of NoSQL:
+1) Key/Value. eg: Redis
+2) Document based. eg: MongoDB
+3) Wide-Columns. eg: DynamoDB
+4) Graph. eg: Neo4j
+
+Diff between SQL & NoSQL:
+1) Storage:
+  sql: tables
+  nosql: different storage models
+
+2) Schema:
+  sql: fixed
+  nosql: dynamic
+
+3) Querying:
+  sql: uses SQL
+  nosql: different query syntax
+
+4) Scalability:
+  sql: vertical: more RAM/CPU/Memory (expensive), horizontal: multiple servers(time consuming setup)
+  nosql: horizontal: easy to add more servers(cheap)
+
+5) ACID:
+  sql: ACID compliant
+  nosql: sacrifices ACID for performance & scalability
+
+6) Usecase:
+  sql:
+    A) need ACID compliance
+    B) Less frequent data structure changes
+  nosql:
+    A) Make use of cloud computing & storage for scalability
+    B) data is (less or un) structured
+    C) frequent data structure changes.
+
