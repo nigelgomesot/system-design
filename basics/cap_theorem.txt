@@ -1,0 +1,25 @@
+# REF: https://en.wikipedia.org/wiki/CAP_theorem
+# REF: https://neo4j.com/blog/acid-vs-base-consistency-models-explained/
+# REF: https://en.wikipedia.org/wiki/ACID
+# REF: https://en.wikipedia.org/wiki/Eventual_consistency
+
+CAP Theorem:
+consists of 3 pillars:
+1) Consistency: Every read receives recent most write or an error
+2) Availability: Every request receives a response which is not an error
+3) Partition Tolerance: System is operational despite arbitary number of messages delayed or dropped between network nodes.
+- In absence of network failures: no tradeoffs between consistency & availability
+- In presence of network failures: tradeoffs between consistency & availability
+
+Highly Consistent systems: eg: SQL datastores like Oracle/MySQL
+they follow ACID properties:
+Atomicity: all operations in a Transaction either committed or Rolledback
+Consistency: Transaction once commited then the Datastore is structurally valid eg: Referential Integrity(foreign keys)
+Isolation: Concurrent transactions execute mutually exclusive & appear as sequential transactions
+Durability: Transaction once committed is permenant even after system crashes
+
+Highy Available systems: eg: NoSQL datastores like Redis/DynamoDB
+they follow BASE properties:
+Basically Available: Datastore is available most of the time
+Soft State: Datastores & their replicas may not be write consistent all the time
+Eventual Consistency: Datastores & their replicas will be read consistent at a later point in time.
