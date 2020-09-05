@@ -1,0 +1,29 @@
+# REF: https://github.com/lei-hsia/grokking-system-design/blob/master/basics/consistent-hashing.md
+# REF: https://www.acodersjourney.com/system-design-interview-consistent-hashing/
+
+Simple Hashing:
+- key % n (n = total servers) identifies a specific server
+- Cons:
+1) Not horizonatlly scalabale: addition/removal of servers breaks existing mappings & most keys get remapped
+2) Data Hot spots: since data is non uniformly distributed, only certains servers get the most requests
+
+Consistent Hashing:
+Addresses both issues of simple hashing.
+Format:
+- consider a range of integers.
+- place them on a rings such that values are wrapped.
+- consider a hashing function which maps key to integer on the ring.
+- for a given server apply hashing function to get integer position on the ring.
+- for a given request apply hashing function to get integer position on the ring to determine server.
+  - if integer is assigned to a server then use that server
+  - else find the next higher integer(clockwise direction) which is assigned to a server and use that server
+
+1) Horizontal scaling:
+- any server added; reduces the load on it next higher integer based server
+- any server removed; adds the load on it next higher integer based server
+- at any point only k/n (k = total keys, n = total servers) keys are impacted & get remapped.
+
+2) Data Hotspots:
+- map multiple integers on the ring to same server (replicas)
+- Multiple portions of the ring are now asigned to the same server
+- replicas ensures uniform key distribution
