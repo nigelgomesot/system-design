@@ -1,0 +1,33 @@
+# REF: https://github.com/lei-hsia/grokking-system-design/blob/master/basics/client-server-communication.md
+# REF: https://www.geeksforgeeks.org/what-are-long-polling-websockets-server-sent-events-sse-and-comet/
+# REF: https://stackoverflow.com/a/12855533
+
+4 main types:
+
+1) Ajax Polling:
+- Initiated by client which makes requests at fixed intervals.
+- Servers responds with reponse, empty repsonse or errors
+- supports upto 6 parallel connections
+- Cons: wasted request cycles. client & server are loaded
+- e.g: Used for appication prototyping
+
+2) Long Polling:
+- enhancement to Ajax Polling
+- Client needs to wait for server repsonse
+- Server holds th request till new response is available or there is a timeout
+- Cons: server is loaded
+- e.g: used in Comet: legacy realtime applications
+
+3) HTML 5 Web Sockets:
+- communication protocol that enables a full duplex communication channel over a single TCP/IP connection
+- connection established via a WebSocket handshake
+- less overhead since it works on TCP/IP layer
+- supports upto 1024 parallel connections
+- Cons: complicated load balancing, proxy, compression techniques(since non HTTP layer protocol)
+- eg: Whastapp chat
+
+4) HTML5 Server Sent Events:
+- Initiated by client but only server can send messages to client(not vice versa)
+- Supporteed via javascript API EventSource
+- supports upto 6 parallel connections
+- eg: Stock price tracking dashboard
