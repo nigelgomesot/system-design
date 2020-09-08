@@ -1,0 +1,37 @@
+# REF: https://www.youtube.com/watch?v=3HIV4MnLGCw&ab_channel=MITOpenCourseWare
+# REF: https://www.comparitech.com/net-admin/latency-vs-throughput/#:~:text=The%20time%20it%20takes%20for,a%20specific%20period%20of%20time.
+
+
+Latency:
+- speed at which messages are processed
+- metric: time units eg: 1 msecs
+
+Throughput:
+- rate at which messages are processed
+- metric: number of messages / time units eg: 1Mbps
+
+Bandwith:
+- Maximum limits for Throughput
+
+Example:
+Laundry system has 2 stages: Stage 1 - Washer(30 mins), Stage 2 - Dryer(60 mins)
+
+Scenario 1:
+only 1 stage processed at a time:
+Latency = 30 + 60 = 90 mins
+Throughput: 1 load / 90 mins
+usage: when we need to process message on priority.
+
+Scenario 2:
+operate Stages in parallel
+Latency = 60 + 60 = 120 mins (since both stages (Washer & Dryer) can be occupied & need to wait for slower stage(Dryer) 60 mins)
+Throughput: 1 load / 60 mins
+usage: when we have large number of messages.
+
+Observation:
+if all the stages are processed in a pipeline
+then
+1) Throughput increases
+2) Latency increases
+
+
