@@ -1,0 +1,15 @@
+# REF: https://medium.com/@rzkmak/forward-vs-reverse-proxy-f97729cdb86e
+
+Proxy server:
+device which acts on behalf of another device.
+
+2 types:
+1) Forward Proxy / Proxy:
+- acts on behalf of clients
+- used to mask client device identity(ip address / location)
+- eg: VPNs
+
+2) Reverse Proxy:
+- acts on behalf of servers
+- used to mask server device identity(ip address / location)
+- e.g: nginx (load balancers, caching, compression)
