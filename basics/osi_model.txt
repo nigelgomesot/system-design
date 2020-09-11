@@ -1,0 +1,62 @@
+# REF: https://www.geeksforgeeks.org/layers-of-osi-model/
+# REF: https://medium.com/@int0x33/day-51-understanding-the-osi-model-f22d5f3df756
+
+OSI Model: Open System Interconnection.
+- specifies layers of abstraction in a networking system.
+- 7 layers
+
+1) Physical Layer:
+- lowest layer, Part of hardware layers
+- data = bits
+- responsible to transmit bits from 1 node to another
+- eg: LAN
+
+2) Data Link Layer:
+- Part of hardware layer
+- data = frames
+- responsible to transmit messages via MAC addresses
+- 2 sub layers: i) Logical Link Control(LLC), ii) Media Access Control(MAC)
+- eg: Network Interface cards
+
+3) Network Layer:
+- Part of hardware layer
+- data = packets
+- responsible to transmit messages across networks
+- 2 sub layers: i) Routing, ii) Logical Addressing 
+- protocol: IP
+- eg: Routers
+
+4) Transport Layer:
+- joins hardware & software layers
+- data = segments
+- responsibilities
+i) at sender's side: segmentation of messages, Flow & error control of messages
+ii) at receiver's side: reassembly of messages, resolves messages to correct process using port address
+- 2 types of services:
+i) Connection oriented: 
+- 3 phases: Connection establishment, data transfer, Connection termination
+- ack sent from receiver to sender
+- more reliable, slower
+- protocol: TCP
+ii) Connection less:
+- 1 phase: data transfer
+- no ack sent from receiver to sender
+- less reliable, faster
+- protocol: UDP
+
+5) Session Layer:
+- part of software layer
+- responsible to authenticate & maintain a session/connection between 2 devices
+- protocol: RPC
+
+6) Presentation Layer:
+- part of software layer
+- responsible for translation,encryption,decryption,compression of data.
+- converts data into abstract data structure to build semantic & syntax of data
+- eg: JPEG
+
+7) Application Layer:
+- highest layer, part of software layer
+- Human/Application & computer interaction
+- protocol: http
+- eg: Web browsers
