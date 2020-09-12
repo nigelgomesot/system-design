@@ -1,0 +1,43 @@
+# REF: https://www.youtube.com/watch?v=kCuyS7ihr_E&ab_channel=danscourses
+
+TCP/P Model:
+- enhancement to OSI Model
+- it is protocol oriented
+- it has 4 layers:
+
+1) Application Layer:
+- OSI Layers 5,6,7
+- unit: Data
+- device: Firewall
+- protocol: HTTP, SSH
+- usage: end user interface
+- Decapsulation: Actual Data
+- Encapsulation: Actual Data
+
+2) Transport Layer:
+- OSI Layer 4
+- unit: Segments
+- device: Firewall
+- protocol: TCP, UDP
+- usage: end to end communications between applications (authentication, session)
+- Decapsulation: Data broken into segments & Transport header added to each segment
+- Encapsulation: vice versa
+
+3) Internet Layer:
+- OSI Layer 3
+- unit: Packets
+- device: Router
+- protocol: IP
+- usage: routing between networks
+- Decapsulation: Each Segment appended with network header = Packet
+- Encapsulation: vice versa
+
+4) Network Access Layer:
+- unit: Frames/Bits
+- device: NIC
+- protocol: MAC, ARP
+- usage:
+  - sub layer 1: Logical Link Control(LLC) interacts with higher levels
+  - sub layer 2: Media Access Control(MAC) interacts with lower level
+- Decapsulation: Each Packet appended with Frame Header & Frame Trailer = Frames & later converted to bits
+- Encapsulation: vice versa
