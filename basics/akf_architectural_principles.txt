@@ -1,0 +1,17 @@
+# REF: https://akfpartners.com/growth-blog/role-of-architectural-principles-in-software-development-and-systems-develo
+
+1)  Use matured technologies: tried & tested
+2)  Use commodity hardware: easy to scale, cheap eg: AWS EC2 instances
+3)  Scale out, not up: scaling up is limited. easy to horizontally split system based on data, users, transactions
+4)  Isolate faults: avoid failure propogation across swimlanes(logical components).
+5)  Scalability needs: design for atleast 2 axes of the scale(AKF cube)
+6)  Multiple live & independent sites: instead of 1 primary site & 1 disaster recovery site (reduces single point failure switch time)
+7)  N + 2 design: allows continuity + 1 during maintenance/failure scenarios
+8)  Design to be disabled/rolledback: feature flags, rollback deployments
+9)  Microservices for Breadth, Libraries for Depth: decompose monoliths into services or products
+10) Buy when Non-core: non core feature or offers competetive advantage (eg: Mixpanel)
+11) Build small, release small, Fail fast: iterate constantly
+12) Automate everything: Never rely on people that can be done by system(scripts)
+13) Use stateless systems: Avoid state or only use state when ROI is justified
+14) Asynchronous communication: better fault tolerance than synchronous/realtime communication
+15) Design to be monitored: feature needs be tracked for failures & also unusual patterns.
